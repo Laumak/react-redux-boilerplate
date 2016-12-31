@@ -1,13 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
 import { AppContainer } from "react-hot-loader";
+import { Router, browserHistory } from "react-router";
 
-import App from "./app";
+import routes from "./routes";
 
 render(
     <AppContainer>
-        <App/>
-    </AppContainer>, document.getElementById("app")
+        <Router history={browserHistory} routes={routes} />
+    </AppContainer>, 
+    
+    document.getElementById("app")
 );
 
 if(module.hot) {
@@ -16,7 +19,7 @@ if(module.hot) {
 
         render(
             <AppContainer>
-                <App/>
+                <Router history={browserHistory} routes={routes} />
             </AppContainer>, document.getElementById("app")
         );
     });

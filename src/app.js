@@ -1,23 +1,23 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import "./styles/app.scss";
 
-import Counter from "./components/counter";
+import Nav from "./demo/nav";
 
 class App extends React.Component {
     render() {
-        return(
+        return (
             <section className="section">
-                <div className="container has-text-centered">
-                    <h1 className="title">Counter example</h1>
-                    <div className="columns">
-                        <div className="column is-4 is-offset-4">
-                            <Counter />
-                        </div>
-                    </div>
+                <div className="container">
+                    <Nav />
+                    {this.props.children}
                 </div>
             </section>
         );
     }
 }
+
+App.propTypes = {
+    children: PropTypes.object.isRequired
+};
 
 export default App;

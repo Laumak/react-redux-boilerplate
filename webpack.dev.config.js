@@ -13,7 +13,7 @@ export default {
     entry: [
         "webpack-hot-middleware/client?reload=true",
         "react-hot-loader/patch",
-        path.resolve(__dirname, "src/index")
+        path.resolve(__dirname, "src/index.js")
     ],
     target: "web",
     output: {
@@ -24,6 +24,7 @@ export default {
     plugins: [
         new HtmlWebpackPlugin({
             template: "src/index.html",
+            filename: "index.html",
             inject: true
         }),
         new webpack.DefinePlugin({
