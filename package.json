@@ -14,7 +14,7 @@
     "clean-dist": "rimraf ./dist && mkdir dist",
     "preprod": "npm-run-all clean-dist lint",
     "prod": "babel-node buildScripts/build.js",
-    "postprod": "babel-node buildScripts/distServer.js",
+    "postprod": "babel-node buildScripts/prodServer.js",
     "generate-mock-data": "babel-node buildScripts/generateMockData.js",
     "prestart-mockapi": "npm run generate-mock-data",
     "start-mockapi": "json-server --watch src/api/db.json --port 3001"
