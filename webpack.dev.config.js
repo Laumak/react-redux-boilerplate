@@ -11,6 +11,8 @@ export default {
     devtool: "inline-source-map",
     noInfo: false,
     entry: [
+        "webpack-hot-middleware/client?reload=true",
+        "react-hot-loader/patch",
         path.resolve(__dirname, "src/index")
     ],
     target: "web",
@@ -22,23 +24,21 @@ export default {
     plugins: [
         new HtmlWebpackPlugin({
             template: "src/index.html",
-            minify: {
-                removeComments: true
-            },
             inject: true
         }),
         new webpack.DefinePlugin({
             "process.env": {
                 NODE_ENV: JSON.stringify("development")
             }
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     module: {
         loaders: [
             {
                 test: /\.js?$/, 
                 exclude: /node_modules/, 
-                loaders: ["babel"]
+                loaders: ["babel-loader"]
             }, {
                 test: /\.scss$/,
                 loaders: ["style-loader", "css-loader", "sass-loader"]

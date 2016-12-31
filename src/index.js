@@ -1,24 +1,23 @@
 import React from "react";
 import { render } from "react-dom";
-import "./styles/app.scss";
+import { AppContainer } from "react-hot-loader";
 
-import Counter from "./counter.js";
+import App from "./app";
 
-class App extends React.Component {
-    render() {
-        return(
-            <section className="section">
-                <div className="container has-text-centered">
-                    <h1 className="title">Counter example</h1>
-                    <div className="columns">
-                        <div className="column is-4 is-offset-4">
-                            <Counter />
-                        </div>
-                    </div>
-                </div>
-            </section>
+render(
+    <AppContainer>
+        <App/>
+    </AppContainer>, document.getElementById("app")
+);
+
+if(module.hot) {
+    module.hot.accept("./app", () => {
+        require("./app");
+
+        render(
+            <AppContainer>
+                <App/>
+            </AppContainer>, document.getElementById("app")
         );
-    }
+    });
 }
-
-render(<App/>, document.getElementById("app"));

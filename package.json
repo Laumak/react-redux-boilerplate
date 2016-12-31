@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "babel-node buildScripts/srcServer.js lint:watch",
+    "start": "npm-run-all --parallel open:src lint:watch start-mockapi",
+    "open:src": "babel-node buildScripts/devServer.js",
     "lint": "esw src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
     "localtunnel": "lt --port 3000",
@@ -13,12 +14,16 @@
     "clean-dist": "rimraf ./dist && mkdir dist",
     "preprod": "npm-run-all clean-dist lint",
     "prod": "babel-node buildScripts/build.js",
-    "postprod": "babel-node buildScripts/distServer.js"
+    "postprod": "babel-node buildScripts/distServer.js",
+    "generate-mock-data": "babel-node buildScripts/generateMockData.js",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001"
   },
   "dependencies": {
     "bulma": "^0.2.3",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "react-hot-loader": "3.0.0-beta.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.0",
@@ -38,6 +43,8 @@
     "eslint-watch": "^2.1.14",
     "express": "^4.14.0",
     "html-webpack-plugin": "^2.24.1",
+    "json-schema-faker": "^0.4.0",
+    "json-server": "^0.9.4",
     "localtunnel": "^1.8.2",
     "node-sass": "^4.1.1",
     "npm-run-all": "^3.1.2",
