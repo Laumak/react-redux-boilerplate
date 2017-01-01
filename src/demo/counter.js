@@ -1,43 +1,44 @@
-import React from "react";
+import React, { PropTypes } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import * as DemoActions from "../actions/counterActions";
 
 class Counter extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            count: 0
-        };
-
-        this.calculateCount = this.calculateCount.bind(this);
+        this.increment = this.increment.bind(this);
+        this.decrement = this.decrement.bind(this);
     }
 
-    calculateCount(action) {
-        if(action === "increment") {
-            this.setState({ count: this.state.count + 1 });
-        } else {
-            this.setState({ count: this.state.count - 1 });
-        }
+    increment() {
+        this.props.actions.increment();
+    }
+
+    decrement() {
+        this.props.actions.decrement();
     }
 
     render() {
-        return(
+        return (
             <div className="has-text-centered">
                 <h1 className="title">Counter example</h1>
 
                 <div className="columns">
                     <div className="column is-4 is-offset-4">
-                        <h2 className="title">{ this.state.count }</h2>
+                        <h2 className="title">{this.props.counter.count}</h2>
 
-                        <a  className="button is-success"
-                            onClick={() => this.calculateCount("increment")} 
+                        <a className="button is-success"
+                            onClick={() => this.increment()}
                             style={{ marginRight: 10 }}
-                        >
+                            >
                             Increment
                         </a>
 
-                        <a  className="button is-danger" 
-                            onClick={() => this.calculateCount("decrement")}
-                        >
+                        <a className="button is-danger"
+                            onClick={() => this.decrement()}
+                            >
                             Decrement
                         </a>
                     </div>
@@ -47,4 +48,21 @@ class Counter extends React.Component {
     }
 }
 
-export default Counter;
+Counter.propTypes = {
+    actions: PropTypes.object.isRequired,
+    counter: PropTypes.object
+};
+
+function mapStateToProps(state) {
+    return {
+        counter: state.counter
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(DemoActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
