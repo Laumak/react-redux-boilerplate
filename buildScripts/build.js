@@ -5,8 +5,6 @@ import chalk from "chalk";
 
 process.env.NODE_ENV = "production";
 
-console.log(chalk.blue("Generating production build..."));
-
 webpack(webpackConfig).run((err, stats) => {
     if(err) {
         console.log(chalk.red(err));
