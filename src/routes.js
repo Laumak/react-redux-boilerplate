@@ -2,8 +2,8 @@ import React from "react";
 import { Route, IndexRoute } from "react-router";
 
 import App from "./app";
-import Home from "./demo/home";
-import Counter from "./demo/counter";
+import Home from "./pages/home";
+import Counter from "./containers/counter";
 
 export default (
     <Route path="/" component={App}>

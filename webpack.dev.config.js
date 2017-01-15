@@ -41,8 +41,11 @@ export default {
                 exclude: /node_modules/, 
                 loaders: ["babel-loader"]
             }, {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 loaders: ["style-loader", "css-loader", "sass-loader"]
+            }, {
+                test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                loader: "file-loader"
             }
         ]
     },

@@ -1,7 +1,8 @@
 import React, { PropTypes } from "react";
 import "./styles/app.scss";
+import "../node_modules/font-awesome/css/font-awesome.css";
 
-import Nav from "./demo/nav";
+import Nav from "./components/nav";
 
 class App extends React.Component {
     render() {

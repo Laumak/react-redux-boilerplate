@@ -32,14 +32,20 @@ class Counter extends React.Component {
                         <a className="button is-success"
                             onClick={() => this.increment()}
                             style={{ marginRight: 10 }}
-                            >
-                            Increment
+                        >
+                            <span className="icon">
+                                <i className="fa fa-plus"></i>
+                            </span>
+                            <span>Increment</span>
                         </a>
 
                         <a className="button is-danger"
                             onClick={() => this.decrement()}
-                            >
-                            Decrement
+                        >
+                            <span className="icon">
+                                <i className="fa fa-minus"></i>
+                            </span>
+                            <span>Decrement</span>
                         </a>
                     </div>
                 </div>

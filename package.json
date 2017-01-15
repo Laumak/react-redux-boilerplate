@@ -21,7 +21,8 @@
     "start-mockapi": "json-server --watch src/api/db.json --port 3001"
   },
   "dependencies": {
-    "bulma": "^0.2.3",
+    "bulma": "^0.3.0",
+    "font-awesome": "^4.7.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-hot-loader": "3.0.0-beta.6",
@@ -49,6 +50,7 @@
     "eslint-plugin-react": "^6.8.0",
     "eslint-watch": "^2.1.14",
     "express": "^4.14.0",
+    "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
     "json-schema-faker": "^0.4.0",
     "json-server": "^0.9.4",
