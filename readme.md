@@ -1,4 +1,4 @@
-# React Boilerplate
+# Redux powered React boilerplate
 
 Kasattu käyttäen Cory Housen ["Building a JavaScript Development Environment"](https://app.pluralsight.com/library/courses/javascript-development-environment) kurssia Pluralsightissa.
 
