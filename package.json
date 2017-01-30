@@ -1,11 +1,12 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "1.0.1",
-  "main": "index.js",
+  "description": "React + Redux boilerplate with ES2015, react-router and Bulma.",
+  "version": "1.0.2",
+  "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel open:src lint:watch start-mockapi",
+    "predev": "babel-node buildScripts/devMessage.js",
+    "dev": "npm-run-all --parallel open:src lint:watch start-mockapi",
     "open:src": "babel-node buildScripts/devServer.js",
     "lint": "esw src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",

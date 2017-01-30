@@ -21,6 +21,8 @@ class Counter extends React.Component {
     }
 
     render() {
+        const inlineButtonStyle = { marginRight: 10 };
+
         return (
             <div className="has-text-centered">
                 <h1 className="title">Counter example</h1>
@@ -31,9 +33,9 @@ class Counter extends React.Component {
 
                         <a className="button is-success"
                             onClick={() => this.increment()}
-                            style={{ marginRight: 10 }}
+                            style={inlineButtonStyle}
                         >
-                            <span className="icon">
+                            <span className="icon is-small">
                                 <i className="fa fa-plus"></i>
                             </span>
                             <span>Increment</span>
@@ -42,7 +44,7 @@ class Counter extends React.Component {
                         <a className="button is-danger"
                             onClick={() => this.decrement()}
                         >
-                            <span className="icon">
+                            <span className="icon is-small">
                                 <i className="fa fa-minus"></i>
                             </span>
                             <span>Decrement</span>
