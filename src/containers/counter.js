@@ -1,10 +1,10 @@
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import * as DemoActions from "../actions/counterActions";
 
-class Counter extends React.Component {
+class Counter extends Component {
     constructor(props) {
         super(props);
 

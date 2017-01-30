@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { AppContainer } from "react-hot-loader";
 import { Router, browserHistory } from "react-router";
@@ -11,26 +11,26 @@ import configureStore from "./store/configureStore";
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
-render(
+const appEl = document.getElementById("app");
+
+ReactDOM.render(
     <AppContainer>
         <Provider store={store}>
             <Router history={history} routes={routes} />
         </Provider>
-    </AppContainer>, 
-    
-    document.getElementById("app")
+    </AppContainer>, appEl
 );
 
 if(module.hot) {
-    module.hot.accept("./app", () => {
-        require("./app");
+    module.hot.accept("./routes", () => {
+        require("./routes");
 
-        render(
+        ReactDOM.render(
             <AppContainer>
                 <Provider store={store}>
                     <Router history={history} routes={routes} />
                 </Provider>
-            </AppContainer>, document.getElementById("app")
+            </AppContainer>, appEl
         );
     });
 }

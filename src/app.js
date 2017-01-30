@@ -1,10 +1,10 @@
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
 import "./styles/app.scss";
 import "../node_modules/font-awesome/css/font-awesome.css";
 
 import Nav from "./components/nav";
 
-class App extends React.Component {
+class App extends Component {
     render() {
         return (
             <section className="section">
@@ -18,7 +18,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-    children: PropTypes.object.isRequired
+    children: PropTypes.any.isRequired
 };
 
 export default App;
