@@ -6,10 +6,20 @@ import Nav from "./components/nav";
 
 class App extends Component {
     render() {
+        const links = [
+            {
+                url: "/",
+                name: "Home"
+            }, {
+                url: "/counter",
+                name: "Counter"
+            }
+        ];
+
         return (
             <section className="section">
                 <div className="container">
-                    <Nav />
+                    <Nav links={links} />
                     {this.props.children}
                 </div>
             </section>

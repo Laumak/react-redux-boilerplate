@@ -1,15 +1,21 @@
-import React from "react";
-import { Link, IndexLink } from "react-router";
+import React, { PropTypes } from "react";
 
-const Nav = () => {
+import NavLink from "./navLink";
+
+const propTypes = {
+    links: PropTypes.array.isRequired,
+};
+
+const Nav = ({ links }) => {
     return (
         <div className="tabs is-centered">
             <ul>
-                <li><IndexLink to="/" activeClassName="is-active">Home</IndexLink></li>
-                <li><Link to="/counter" activeClassName="is-active">Counter</Link></li>
+                { links.map((link) => <NavLink link={link} />) }
             </ul>
         </div>
     );
 };
+
+Nav.propTypes = propTypes;
 
 export default Nav;
