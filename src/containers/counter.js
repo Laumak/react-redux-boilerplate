@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from "react";
+import React, { PropTypes } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import * as DemoActions from "../actions/counterActions";
 
-class Counter extends Component {
+class Counter extends React.Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         counter: PropTypes.object,
@@ -26,7 +26,10 @@ class Counter extends Component {
     }
 
     render() {
-        const inlineButtonStyle = { marginRight: 10 };
+        const inlineButtonStyle = {
+            marginRight: 10,
+            marginLeft: 10,
+        };
 
         return (
             <div className="has-text-centered">
@@ -34,9 +37,10 @@ class Counter extends Component {
 
                 <div className="columns">
                     <div className="column is-4 is-offset-4">
-                        <h2 className="title">{this.props.counter.count}</h2>
+                        <h2 className="title">{ this.props.counter.count }</h2>
 
-                        <a className="button is-success"
+                        <a
+                            className="button is-success"
                             onClick={() => this.increment()}
                             style={inlineButtonStyle}
                         >
@@ -46,7 +50,8 @@ class Counter extends Component {
                             <span>Increment</span>
                         </a>
 
-                        <a className="button is-danger"
+                        <a
+                            className="button is-danger"
                             onClick={() => this.decrement()}
                         >
                             <span className="icon is-small">
@@ -63,13 +68,13 @@ class Counter extends Component {
 
 function mapStateToProps(state) {
     return {
-        counter: state.counter
+        counter: state.counter,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(DemoActions, dispatch)
+        actions: bindActionCreators(DemoActions, dispatch),
     };
 }
 

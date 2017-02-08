@@ -1,5 +1,5 @@
 export default {
     counter: {
-        count: 0
-    }
+        count: 0,
+    },
 };

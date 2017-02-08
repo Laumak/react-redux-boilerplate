@@ -1,34 +1,34 @@
-import React, { Component, PropTypes } from "react";
+import React, { PropTypes } from "react";
 import "./styles/app.scss";
 import "../node_modules/font-awesome/css/font-awesome.css";
 
 import Nav from "./components/nav";
 
-class App extends Component {
-    static propTypes = {
-        children: PropTypes.any.isRequired
-    }
+const propTypes = {
+    children: PropTypes.any.isRequired,
+};
 
-    render() {
-        const links = [
-            {
-                url: "/",
-                name: "Home"
-            }, {
-                url: "/counter",
-                name: "Counter"
-            }
-        ];
+const App = (props) => {
+    const links = [
+        {
+            url: "/",
+            name: "Home",
+        }, {
+            url: "/counter",
+            name: "Counter",
+        },
+    ];
 
-        return (
-            <section className="section">
-                <div className="container">
-                    <Nav links={links} />
-                    {this.props.children}
-                </div>
-            </section>
-        );
-    }
-}
+    return (
+        <section className="section">
+            <div className="container">
+                <Nav links={links} />
+                {props.children}
+            </div>
+        </section>
+    );
+};
+
+App.propTypes = propTypes;
 
 export default App;

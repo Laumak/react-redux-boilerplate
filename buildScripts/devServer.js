@@ -14,9 +14,9 @@ app.use(require("webpack-dev-middleware")(compiler, {
     hot: true,
     noInfo: true,
     stats: {
-        colors: true
+        colors: true,
     },
-    publicPath: config.output.publicPath
+    publicPath: config.output.publicPath,
 }));
 
 app.use(require("webpack-hot-middleware")(compiler));
@@ -26,7 +26,7 @@ app.use("*", (req, res, next) => {
 
     compiler.outputFileSystem.readFile(filename, (err, result) => {
         if (err) return next(err);
-        
+
         res.set("content-type","text/html");
         res.send(result);
         res.end();

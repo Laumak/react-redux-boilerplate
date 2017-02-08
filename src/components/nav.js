@@ -10,7 +10,7 @@ const Nav = ({ links }) => {
     return (
         <div className="tabs is-centered">
             <ul>
-                { links.map((link) => <NavLink link={link} />) }
+                { links.map((link) => <NavLink link={link} key={link.name} />) }
             </ul>
         </div>
     );

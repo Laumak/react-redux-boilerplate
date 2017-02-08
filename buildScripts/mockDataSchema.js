@@ -11,11 +11,11 @@ export const schema = {
                     "id": {
                         "type": "number",
                         "unique": true,
-                        "minimum": 1
+                        "minimum": 1,
                     },
                     "firstName": {
                         "type": "string",
-                        "faker": "name.firstName"
+                        "faker": "name.firstName",
                     },
                     "lastName": {
                         "type": "string",
@@ -24,11 +24,11 @@ export const schema = {
                     "email": {
                         "type": "string",
                         "faker": "internet.email",
-                    }
+                    },
                 },
-                required: ["id", "firstName", "lastName", "email"]
-            }
-        }
+                required: ["id", "firstName", "lastName", "email"],
+            },
+        },
     },
-    required: ["users"]
+    required: ["users"],
 };
