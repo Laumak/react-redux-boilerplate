@@ -23,6 +23,19 @@
         "mocha": true
     },
     "rules": {
-        "no-console": 1
+        "no-console": "warn",
+        "comma-dangle": ["warn", "always-multiline"],
+        "no-mixed-spaces-and-tabs": "error",
+        "no-trailing-spaces": "warn",
+        "quotes": ["warn", "double", { "allowTemplateLiterals": true }],
+        "semi": ["warn", "always"],
+
+        "react/prefer-es6-class": "warn",
+        "react/prefer-stateless-function": "warn",
+        "react/prop-types": "warn",
+        "react/no-unused-prop-types": "warn",
+        "react/jsx-first-prop-new-line": ["warn", "multiline"],
+        "react/jsx-indent-props": ["warn", 4],
+        "react/jsx-key": "error"
     }
 }
