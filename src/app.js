@@ -5,6 +5,10 @@ import "../node_modules/font-awesome/css/font-awesome.css";
 import Nav from "./components/nav";
 
 class App extends Component {
+    static propTypes = {
+        children: PropTypes.any.isRequired
+    }
+
     render() {
         const links = [
             {
@@ -26,9 +30,5 @@ class App extends Component {
         );
     }
 }
-
-App.propTypes = {
-    children: PropTypes.any.isRequired
-};
 
 export default App;

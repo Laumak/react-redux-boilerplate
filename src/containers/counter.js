@@ -5,6 +5,11 @@ import { bindActionCreators } from "redux";
 import * as DemoActions from "../actions/counterActions";
 
 class Counter extends Component {
+    static propTypes = {
+        actions: PropTypes.object.isRequired,
+        counter: PropTypes.object,
+    }
+
     constructor(props) {
         super(props);
 
@@ -55,11 +60,6 @@ class Counter extends Component {
         );
     }
 }
-
-Counter.propTypes = {
-    actions: PropTypes.object.isRequired,
-    counter: PropTypes.object
-};
 
 function mapStateToProps(state) {
     return {
