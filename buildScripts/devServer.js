@@ -6,7 +6,7 @@ import config from "../webpack.dev.config";
 
 /* eslint-disable no-console */
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 const compiler = webpack(config);
 
@@ -20,6 +20,7 @@ app.use(require("webpack-dev-middleware")(compiler, {
 }));
 
 app.use(require("webpack-hot-middleware")(compiler));
+app.use(express.static(path.resolve(__dirname, "..", "src/assets")));
 
 app.use("*", (req, res, next) => {
     const filename = path.join(compiler.outputPath, "index.html");
