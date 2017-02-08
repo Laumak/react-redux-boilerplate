@@ -6,52 +6,52 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export default {
     resolve: {
-        extensions: ["", ".js", ".jsx", ".json"]
+        extensions: ["", ".js", ".jsx", ".json"],
     },
     debug: true,
     devtool: "source-map",
     noInfo: false,
     entry: {
         vendor: path.resolve(__dirname, "src/vendor"),
-        main: path.resolve(__dirname, "src/index")
+        main: path.resolve(__dirname, "src/index"),
     },
     target: "web",
     output: {
         path: path.resolve(__dirname, "dist"),
         publicPath: "/",
-        filename: "[name].[chunkhash].js"
+        filename: "[name].[chunkhash].js",
     },
     plugins: [
         new WebpackMd5Hash(),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor"
+            name: "vendor",
         }),
         new HtmlWebpackPlugin({
             template: "src/index.html",
-            inject: true
+            inject: true,
         }),
         new webpack.DefinePlugin({
             "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
+                NODE_ENV: JSON.stringify("production"),
+            },
         }),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
     ],
     module: {
         loaders: [
             {
-                test: /\.js$/, 
-                exclude: /node_modules/, 
-                loaders: ["babel"]
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loaders: ["babel"],
             }, {
-                test: /\.(scss|css)$/,
-                loaders: ["style-loader", "css-loader", "sass-loader"]
+                test: /\.(css|scss)$/,
+                loaders: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
             }, {
                 test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: "file-loader"
-            }
-        ]
+                loader: "file-loader",
+            },
+        ],
     },
-    postcss: () => [autoprefixer]
-}
+    postcss: () => [autoprefixer],
+};

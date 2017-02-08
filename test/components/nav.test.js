@@ -6,11 +6,11 @@ import Nav from "../../src/components/nav";
 const links = [
     {
         url: "/",
-        name: "Home"
+        name: "Home",
     }, {
         url: "/counter",
-        name: "Counter"
-    }
+        name: "Counter",
+    },
 ];
 
 describe("NavComponent", () => {
@@ -20,5 +20,5 @@ describe("NavComponent", () => {
         expect(
             wrapper.find("ul").children().length
         ).to.be.gt(0);
-    })
+    });
 });
