@@ -1,5 +1,15 @@
+// @flow
+
+type Actions = {
+  increment: Function,
+  decrement: Function,
+}
+
+type CounterType = {
+  count: number,
+}
+
 import React from "react"
-import PropTypes from "prop-types"
 
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
@@ -7,9 +17,9 @@ import { bindActionCreators } from "redux"
 import * as DemoActions from "../actions/counterActions"
 
 class Counter extends React.Component {
-  static propTypes = {
-    actions: PropTypes.object.isRequired,
-    counter: PropTypes.object,
+  props: {
+    actions: Actions,
+    counter: CounterType,
   }
 
   increment = () => this.props.actions.increment()
@@ -56,7 +66,7 @@ class Counter extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: Object) => ({
   counter: state.counter,
 })
 
