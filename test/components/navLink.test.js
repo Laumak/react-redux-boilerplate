@@ -2,28 +2,18 @@ import React from "react"
 import { shallow } from "enzyme"
 import { expect } from "chai"
 import NavLink from "../../src/components/navLink"
-import { Link, IndexLink } from "react-router"
+import { NavLink as RouterNavLink } from "react-router-dom"
 
 describe("NavLinkComponent", () => {
-  // "Index" link
-  const indexLink = { url: "/", name: "Home" }
-  const indexWrapper = shallow(
-    <NavLink link={indexLink} />
+  // "Normal" link
+  const link = { url: "/test", name: "Test" }
+  const wrapper = shallow(
+    <NavLink link={link} />
   )
 
-  it("renders an IndexLink if link url === \"/\"", () => {
+  it("renders a navigation link", () => {
     expect(
-        indexWrapper.find(IndexLink).exists()
-    ).to.be.true
-  })
-
-  // "Normal" link
-  const normalLink = { url: "/test", name: "Test" }
-  const normalWrapper = shallow(<NavLink link={normalLink} />)
-
-  it("renders a \"normal\" link if link url !== \"/\"", () => {
-    expect(
-      normalWrapper.find(Link).exists()
+      wrapper.find(RouterNavLink).exists()
     ).to.be.true
   })
 })
