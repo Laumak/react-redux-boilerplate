@@ -9,7 +9,7 @@ const propTypes = {
 
 const NavLink = ({ link }) => (
   <li>
-    <RouterNavLink to={link.url} exact>
+    <RouterNavLink to={link.url} exact activeClassName="is-active">
       {link.name}
     </RouterNavLink>
   </li>
