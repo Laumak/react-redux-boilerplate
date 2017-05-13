@@ -1,6 +1,6 @@
-import path from "path"
-import webpack from "webpack"
-import autoprefixer from "autoprefixer"
+import path              from "path"
+import webpack           from "webpack"
+import autoprefixer      from "autoprefixer"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 
 export default {

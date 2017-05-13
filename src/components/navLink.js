@@ -1,37 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import { Link, IndexLink } from "react-router"
+import { NavLink as RouterNavLink } from "react-router-dom"
 
 const propTypes = {
   link: PropTypes.object.isRequired,
 }
 
-const NavLink = ({ link }) => {
-  if(link.url === "/") {
-    return (
-      <li>
-        <IndexLink
-          to={link.url}
-          activeClassName="is-active"
-        >
-          {link.name}
-        </IndexLink>
-      </li>
-    )
-  }
-
-  return (
-    <li>
-      <Link
-        to={link.url}
-        activeClassName="is-active"
-      >
-        {link.name}
-      </Link>
-    </li>
-  )
-}
+const NavLink = ({ link }) => (
+  <li>
+    <RouterNavLink to={link.url} exact>
+      {link.name}
+    </RouterNavLink>
+  </li>
+)
 
 NavLink.propTypes = propTypes
 

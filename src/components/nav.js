@@ -10,7 +10,7 @@ const propTypes = {
 const Nav = ({ links }) => (
   <div className="tabs is-centered">
     <ul>
-      { links.map((link) => <NavLink link={link} key={link.name} />) }
+      { links.map(link => <NavLink link={link} key={link.name} />) }
     </ul>
   </div>
 )

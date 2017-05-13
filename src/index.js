@@ -2,34 +2,34 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 import { AppContainer } from "react-hot-loader"
-import { Router, browserHistory } from "react-router"
-import { syncHistoryWithStore } from "react-router-redux"
+import { BrowserRouter } from "react-router-dom"
 
-import routes from "./routes"
+import App from "./app"
 import configureStore from "./store/configureStore"
 
 const store = configureStore()
-const history = syncHistoryWithStore(browserHistory, store)
-
 const appEl = document.getElementById("app")
 
 ReactDOM.render(
   <AppContainer>
     <Provider store={store}>
-      <Router history={history} routes={routes} />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </AppContainer>, appEl
 )
 
 if(module.hot) {
-  module.hot.accept(["./routes", "./store/configureStore"], () => {
-    require("./routes")
-    require("./store/configureStore")
+  module.hot.accept("./app", () => {
+    const NewApp = require("./app").default
 
     ReactDOM.render(
       <AppContainer>
         <Provider store={store}>
-          <Router history={history} routes={routes} />
+          <BrowserRouter>
+            <NewApp store={store} />
+          </BrowserRouter>
         </Provider>
       </AppContainer>, appEl
     )

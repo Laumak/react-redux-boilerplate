@@ -1,7 +1,11 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { Route } from "react-router-dom"
+
 import "./styles/app.scss"
 import "../node_modules/font-awesome/css/font-awesome.css"
+
+import Home    from "./pages/home"
+import Counter from "./containers/counter"
 
 import Nav from "./components/nav"
 
@@ -15,20 +19,14 @@ const links = [
   },
 ]
 
-const propTypes = {
-  children: PropTypes.any.isRequired,
-}
-
-const App = props => (
+const App = () => (
   <section className="section">
     <div className="container">
       <Nav links={links} />
-
-      {props.children}
+      <Route path="/" exact component={Home} />
+      <Route path="/counter" component={Counter} />
     </div>
   </section>
 )
-
-App.propTypes = propTypes
 
 export default App
