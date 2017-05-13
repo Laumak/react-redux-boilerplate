@@ -22,8 +22,9 @@ ReactDOM.render(
 )
 
 if(module.hot) {
-  module.hot.accept("./routes", () => {
+  module.hot.accept(["./routes", "./store/configureStore"], () => {
     require("./routes")
+    require("./store/configureStore")
 
     ReactDOM.render(
       <AppContainer>

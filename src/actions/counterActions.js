@@ -1,17 +1,7 @@
 import * as types from "./actionTypes"
 
-export function increment() {
-  return function(dispatch) {
-    dispatch({
-      "type": types.COUNTER_INCREMENT,
-    })
-  }
-}
+export const increment = () => dispatch =>
+  dispatch({ "type": types.COUNTER_INCREMENT })
 
-export function decrement() {
-  return function(dispatch) {
-    dispatch({
-      "type": types.COUNTER_DECREMENT,
-    })
-  }
-}
+export const decrement = () => dispatch =>
+  dispatch({ "type": types.COUNTER_DECREMENT })

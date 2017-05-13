@@ -12,20 +12,8 @@ class Counter extends React.Component {
     counter: PropTypes.object,
   }
 
-  constructor(props) {
-    super(props)
-
-    this.increment = this.increment.bind(this)
-    this.decrement = this.decrement.bind(this)
-  }
-
-  increment() {
-    this.props.actions.increment()
-  }
-
-  decrement() {
-    this.props.actions.decrement()
-  }
+  increment = () => this.props.actions.increment()
+  decrement = () => this.props.actions.decrement()
 
   render() {
     const inlineButtonStyle = {
@@ -68,16 +56,12 @@ class Counter extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    counter: state.counter,
-  }
-}
+const mapStateToProps = state => ({
+  counter: state.counter,
+})
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(DemoActions, dispatch),
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(DemoActions, dispatch),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)

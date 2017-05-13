@@ -1,13 +1,18 @@
-import initialState from "./initialState"
 import * as types from "../actions/actionTypes"
 
-export default function CounterReducer(state = initialState.counter, action) {
+const initialState = {
+  counter: {
+    count: 0,
+  },
+}
+
+export default (state = initialState.counter, action) => {
   switch (action.type) {
     case types.COUNTER_INCREMENT: {
-      return (Object.assign({}, state, { "count": state.count + 1 }))
+      return { ...state, "count": state.count + 5 }
     }
     case types.COUNTER_DECREMENT: {
-      return (Object.assign({}, state, { "count": state.count - 1 }))
+      return { ...state, "count": state.count - 5 }
     }
     default: {
       return state
