@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import "./styles/app.scss"
 import "../node_modules/font-awesome/css/font-awesome.css"
 
