@@ -14,23 +14,23 @@ const history = syncHistoryWithStore(browserHistory, store)
 const appEl = document.getElementById("app")
 
 ReactDOM.render(
-    <AppContainer>
-        <Provider store={store}>
-            <Router history={history} routes={routes} />
-        </Provider>
-    </AppContainer>, appEl
+  <AppContainer>
+    <Provider store={store}>
+      <Router history={history} routes={routes} />
+    </Provider>
+  </AppContainer>, appEl
 )
 
 if(module.hot) {
-    module.hot.accept("./routes", () => {
-        require("./routes")
+  module.hot.accept("./routes", () => {
+    require("./routes")
 
-        ReactDOM.render(
-            <AppContainer>
-                <Provider store={store}>
-                    <Router history={history} routes={routes} />
-                </Provider>
-            </AppContainer>, appEl
-        )
-    })
+    ReactDOM.render(
+      <AppContainer>
+        <Provider store={store}>
+          <Router history={history} routes={routes} />
+        </Provider>
+      </AppContainer>, appEl
+    )
+  })
 }

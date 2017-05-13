@@ -6,8 +6,8 @@ import Home from "./pages/home"
 import Counter from "./containers/counter"
 
 export default (
-    <Route path="/" component={App}>
-        <IndexRoute component={Home} />
-        <Route path="counter" component={Counter} />
-    </Route>
+  <Route path="/" component={App}>
+    <IndexRoute component={Home} />
+    <Route path="counter" component={Counter} />
+  </Route>
 )

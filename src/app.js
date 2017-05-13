@@ -4,30 +4,29 @@ import "../node_modules/font-awesome/css/font-awesome.css"
 
 import Nav from "./components/nav"
 
+const links = [
+  {
+    url: "/",
+    name: "Home",
+  }, {
+    url: "/counter",
+    name: "Counter",
+  },
+]
+
 const propTypes = {
-    children: PropTypes.any.isRequired,
+  children: PropTypes.any.isRequired,
 }
 
-const App = (props) => {
-    const links = [
-        {
-            url: "/",
-            name: "Home",
-        }, {
-            url: "/counter",
-            name: "Counter",
-        },
-    ]
+const App = props => (
+  <section className="section">
+    <div className="container">
+      <Nav links={links} />
 
-    return (
-        <section className="section">
-            <div className="container">
-                <Nav links={links} />
-                {props.children}
-            </div>
-        </section>
-    )
-}
+      {props.children}
+    </div>
+  </section>
+)
 
 App.propTypes = propTypes
 

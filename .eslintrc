@@ -1,41 +1,41 @@
 {
-    "root": true,
-    "plugins": [
-        "react"
-    ],
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings"
-    ],
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "env": {
-        "browser": true,
-        "node": true,
-        "mocha": true
-    },
-    "rules": {
-        "no-console": "warn",
-        "comma-dangle": ["warn", "always-multiline"],
-        "no-mixed-spaces-and-tabs": "error",
-        "no-trailing-spaces": "warn",
-        "quotes": ["warn", "double", { "allowTemplateLiterals": true }],
-        "semi": ["warn", "never"],
-
-        "react/prefer-es6-class": "warn",
-        "react/prefer-stateless-function": "warn",
-        "react/prop-types": "warn",
-        "react/no-unused-prop-types": "warn",
-        "react/jsx-first-prop-new-line": ["warn", "multiline"],
-        "react/jsx-indent-props": ["warn", 4],
-        "react/jsx-key": "error"
+  "root": true,
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "no-console": "warn",
+    "comma-dangle": ["warn", "always-multiline"],
+    "no-mixed-spaces-and-tabs": "error",
+    "no-trailing-spaces": "warn",
+    "quotes": ["warn", "double", { "allowTemplateLiterals": true }],
+    "semi": ["warn", "never"],
+
+    "react/prefer-es6-class": "warn",
+    "react/prefer-stateless-function": "warn",
+    "react/prop-types": "warn",
+    "react/no-unused-prop-types": "warn",
+    "react/jsx-first-prop-new-line": ["warn", "multiline"],
+    "react/jsx-indent-props": ["warn", 2],
+    "react/jsx-key": "error"
+  }
 }

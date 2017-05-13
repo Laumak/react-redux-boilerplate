@@ -4,21 +4,23 @@ import { expect } from "chai"
 import Nav from "../../src/components/nav"
 
 const links = [
-    {
-        url: "/",
-        name: "Home",
-    }, {
-        url: "/counter",
-        name: "Counter",
-    },
+  {
+    url: "/",
+    name: "Home",
+  }, {
+    url: "/counter",
+    name: "Counter",
+  },
 ]
 
 describe("NavComponent", () => {
-    const wrapper = shallow(<Nav links={links} />)
+  const wrapper = shallow(
+    <Nav links={links} />
+  )
 
-    it("renders a list of links", () => {
-        expect(
-            wrapper.find("ul").children().length
-        ).to.be.gt(0)
-    })
+  it("renders a list of links", () => {
+    expect(
+      wrapper.find("ul").children().length
+    ).to.be.gt(0)
+  })
 })

@@ -11,34 +11,34 @@ const app = express()
 const compiler = webpack(config)
 
 app.use(require("webpack-dev-middleware")(compiler, {
-    hot: true,
-    noInfo: true,
-    stats: {
-        colors: true,
-    },
-    publicPath: config.output.publicPath,
+  hot: true,
+  noInfo: true,
+  stats: {
+    colors: true,
+  },
+  publicPath: config.output.publicPath,
 }))
 
 app.use(require("webpack-hot-middleware")(compiler))
 app.use(express.static(path.resolve(__dirname, "..", "src/assets")))
 
 app.use("*", (req, res, next) => {
-    const filename = path.join(compiler.outputPath, "index.html")
+  const filename = path.join(compiler.outputPath, "index.html")
 
-    compiler.outputFileSystem.readFile(filename, (err, result) => {
-        if (err) return next(err)
+  compiler.outputFileSystem.readFile(filename, (err, result) => {
+    if (err) return next(err)
 
-        res.set("content-type","text/html")
-        res.send(result)
-        res.end()
-    })
+    res.set("content-type","text/html")
+    res.send(result)
+    res.end()
+  })
 })
 
 app.listen(port, err => {
-    if(err) {
-        console.log(err)
-    } else {
-        console.log(`Dev server listening at http://localhost:${port}`)
-        open("http://localhost:" + port)
-    }
+  if(err) {
+    console.log(err)
+  } else {
+    console.log(`Dev server listening at http://localhost:${port}`)
+    open("http://localhost:" + port)
+  }
 })
