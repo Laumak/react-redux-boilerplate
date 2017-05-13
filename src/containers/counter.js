@@ -1,8 +1,8 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { PropTypes } from "react"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
 
-import * as DemoActions from "../actions/counterActions";
+import * as DemoActions from "../actions/counterActions"
 
 class Counter extends React.Component {
     static propTypes = {
@@ -11,25 +11,25 @@ class Counter extends React.Component {
     }
 
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.increment = this.increment.bind(this);
-        this.decrement = this.decrement.bind(this);
+        this.increment = this.increment.bind(this)
+        this.decrement = this.decrement.bind(this)
     }
 
     increment() {
-        this.props.actions.increment();
+        this.props.actions.increment()
     }
 
     decrement() {
-        this.props.actions.decrement();
+        this.props.actions.decrement()
     }
 
     render() {
         const inlineButtonStyle = {
             marginRight: 10,
             marginLeft: 10,
-        };
+        }
 
         return (
             <div className="has-text-centered">
@@ -62,20 +62,20 @@ class Counter extends React.Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
 function mapStateToProps(state) {
     return {
         counter: state.counter,
-    };
+    }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(DemoActions, dispatch),
-    };
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)

@@ -1,12 +1,12 @@
-import React, { PropTypes } from "react";
-import "./styles/app.scss";
-import "../node_modules/font-awesome/css/font-awesome.css";
+import React, { PropTypes } from "react"
+import "./styles/app.scss"
+import "../node_modules/font-awesome/css/font-awesome.css"
 
-import Nav from "./components/nav";
+import Nav from "./components/nav"
 
 const propTypes = {
     children: PropTypes.any.isRequired,
-};
+}
 
 const App = (props) => {
     const links = [
@@ -17,7 +17,7 @@ const App = (props) => {
             url: "/counter",
             name: "Counter",
         },
-    ];
+    ]
 
     return (
         <section className="section">
@@ -26,9 +26,9 @@ const App = (props) => {
                 {props.children}
             </div>
         </section>
-    );
-};
+    )
+}
 
-App.propTypes = propTypes;
+App.propTypes = propTypes
 
-export default App;
+export default App

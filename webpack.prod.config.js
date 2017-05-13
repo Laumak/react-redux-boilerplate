@@ -1,8 +1,8 @@
-import path from "path";
-import webpack from "webpack";
-import autoprefixer from "autoprefixer";
-import WebpackMd5Hash from "webpack-md5-hash";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import path from "path"
+import webpack from "webpack"
+import autoprefixer from "autoprefixer"
+import WebpackMd5Hash from "webpack-md5-hash"
+import HtmlWebpackPlugin from "html-webpack-plugin"
 
 export default {
     resolve: {
@@ -54,4 +54,4 @@ export default {
         ],
     },
     postcss: () => [autoprefixer],
-};
+}

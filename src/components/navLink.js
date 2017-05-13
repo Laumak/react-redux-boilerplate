@@ -1,9 +1,9 @@
-import React, { PropTypes } from "react";
-import { Link, IndexLink } from "react-router";
+import React, { PropTypes } from "react"
+import { Link, IndexLink } from "react-router"
 
 const propTypes = {
     link: PropTypes.object.isRequired,
-};
+}
 
 const NavLink = ({ link }) => {
     if(link.url === "/") {
@@ -16,7 +16,7 @@ const NavLink = ({ link }) => {
                     {link.name}
                 </IndexLink>
             </li>
-        );
+        )
     } else {
         return(
             <li>
@@ -27,10 +27,10 @@ const NavLink = ({ link }) => {
                     {link.name}
                 </Link>
             </li>
-        );
+        )
     }
-};
+}
 
-NavLink.propTypes = propTypes;
+NavLink.propTypes = propTypes
 
-export default NavLink;
+export default NavLink

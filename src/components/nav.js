@@ -1,10 +1,10 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from "react"
 
-import NavLink from "./navLink";
+import NavLink from "./navLink"
 
 const propTypes = {
     links: PropTypes.array.isRequired,
-};
+}
 
 const Nav = ({ links }) => {
     return (
@@ -13,9 +13,9 @@ const Nav = ({ links }) => {
                 { links.map((link) => <NavLink link={link} key={link.name} />) }
             </ul>
         </div>
-    );
-};
+    )
+}
 
-Nav.propTypes = propTypes;
+Nav.propTypes = propTypes
 
-export default Nav;
+export default Nav
