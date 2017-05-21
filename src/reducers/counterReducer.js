@@ -1,12 +1,10 @@
 import * as types from "../actions/actionTypes"
 
 const initialState = {
-  counter: {
-    count: 0,
-  },
+  count: 0,
 }
 
-export default (state = initialState.counter, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case types.COUNTER_INCREMENT: {
       return { ...state, "count": state.count + 1 }
