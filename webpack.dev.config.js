@@ -39,10 +39,25 @@ export default {
       {
         test: /\.js?$/,
         exclude: /node_modules/,
-        loaders: ["babel-loader"],
+        loader: "babel-loader",
       }, {
-        test: /\.(css|scss)$/,
-        loaders: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        test: /(globals\.sass)$/,
+        loaders: [
+          "style-loader",
+          "css-loader",
+          "sass-loader?sourceMap",
+        ],
+      }, {
+        test: /\.sass$/,
+        include: [
+          path.resolve(__dirname, "src", "containers"),
+          path.resolve(__dirname, "src", "components"),
+        ],
+        loaders: [
+          "style-loader",
+          "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
+          "sass-loader?sourceMap",
+        ],
       }, {
         test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
         loader: "file-loader",

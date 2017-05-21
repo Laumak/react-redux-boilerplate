@@ -32,7 +32,7 @@ export default {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-          NODE_ENV: JSON.stringify("production"),
+        NODE_ENV: JSON.stringify("production"),
       },
     }),
     new webpack.optimize.DedupePlugin(),
@@ -41,12 +41,27 @@ export default {
   module: {
     loaders: [
       {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loaders: ["babel"],
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
       }, {
-        test: /\.(css|scss)$/,
-        loaders: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        test: /(globals\.sass)$/,
+        loaders: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      }, {
+        test: /\.sass$/,
+        include: [
+          path.resolve(__dirname, "src", "containers"),
+          path.resolve(__dirname, "src", "components"),
+        ],
+        loaders: [
+          "style-loader?sourceMap",
+          "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
+          "sass-loader?sourceMap",
+        ],
       }, {
         test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
         loader: "file-loader",

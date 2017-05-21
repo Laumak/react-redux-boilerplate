@@ -1,6 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import CSSModules from "react-css-modules"
+import styles from "./counter.sass"
+
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 
@@ -16,11 +19,6 @@ class Counter extends React.Component {
   decrement = () => this.props.actions.decrement()
 
   render() {
-    const inlineButtonStyle = {
-      marginRight: 10,
-      marginLeft: 10,
-    }
-
     return (
       <div className="has-text-centered">
         <h1 className="title">Counter example</h1>
@@ -32,7 +30,7 @@ class Counter extends React.Component {
             <a
               className="button is-success"
               onClick={() => this.increment()}
-              style={inlineButtonStyle}
+              styleName="first-button"
             >
               <span className="icon is-small">
                 <i className="fa fa-plus"></i>
@@ -64,4 +62,6 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(DemoActions, dispatch),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+const styled = CSSModules(Counter, styles)
+
+export default connect(mapStateToProps, mapDispatchToProps)(styled)
