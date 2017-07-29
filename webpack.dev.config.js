@@ -5,11 +5,9 @@ import HtmlWebpackPlugin from "html-webpack-plugin"
 
 export default {
   resolve: {
-    extensions: ["", ".js", ".jsx", ".json"],
+    extensions: [".js", ".jsx", ".json"],
   },
-  debug: true,
   devtool: "inline-source-map",
-  noInfo: false,
   entry: [
     "webpack-hot-middleware/client?reload=true",
     "react-hot-loader/patch",
@@ -32,20 +30,36 @@ export default {
         NODE_ENV: JSON.stringify("development"),
       },
     }),
+    new webpack.LoaderOptionsPlugin({
+      debug: true,
+    }),
     new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        use: "babel-loader",
       }, {
         test: /(globals\.sass)$/,
-        loaders: [
+        use: [
           "style-loader",
           "css-loader",
-          "sass-loader?sourceMap",
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: function() {
+                return [autoprefixer]
+              },
+              sourceMap: true,
+            },
+          }, {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       }, {
         test: /\.sass$/,
@@ -53,16 +67,28 @@ export default {
           path.resolve(__dirname, "src", "containers"),
           path.resolve(__dirname, "src", "components"),
         ],
-        loaders: [
+        use: [
           "style-loader",
           "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
-          "sass-loader?sourceMap",
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: function() {
+                return [autoprefixer]
+              },
+              sourceMap: true,
+            },
+          }, {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       }, {
         test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: "file-loader",
+        use: "file-loader",
       },
     ],
   },
-  postcss: () => [autoprefixer],
 }

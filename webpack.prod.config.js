@@ -3,14 +3,16 @@ import webpack           from "webpack"
 import autoprefixer      from "autoprefixer"
 import WebpackMd5Hash    from "webpack-md5-hash"
 import HtmlWebpackPlugin from "html-webpack-plugin"
+import ExtractTextPlugin from "extract-text-webpack-plugin"
+
+const extractVendorCSS = new ExtractTextPlugin("vendor.css")
+const extractAppCSS    = new ExtractTextPlugin("styles.css")
 
 export default {
   resolve: {
-    extensions: ["", ".js", ".jsx", ".json"],
+    extensions: [".js", ".jsx", ".json"],
   },
-  debug: true,
   devtool: "source-map",
-  noInfo: false,
   entry: {
     vendor: path.resolve(__dirname, "src/vendor"),
     main: path.resolve(__dirname, "src/index"),
@@ -35,38 +37,60 @@ export default {
         NODE_ENV: JSON.stringify("production"),
       },
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
+    extractVendorCSS,
+    extractAppCSS,
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        use: "babel-loader",
       }, {
         test: /(globals\.sass)$/,
-        loaders: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-        ],
+        use: extractVendorCSS.extract({
+          fallback: "style-loader",
+          use: [
+            "css-loader",
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: function() {
+                  return [autoprefixer]
+                },
+                sourceMap: true,
+              },
+            },
+            "sass-loader",
+          ],
+        }),
       }, {
         test: /\.sass$/,
         include: [
           path.resolve(__dirname, "src", "containers"),
           path.resolve(__dirname, "src", "components"),
         ],
-        loaders: [
-          "style-loader?sourceMap",
-          "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
-          "sass-loader?sourceMap",
-        ],
+        use: extractAppCSS.extract({
+          fallback: "style-loader",
+          use: [
+            "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: function() {
+                  return [autoprefixer]
+                },
+                sourceMap: true,
+              },
+            },
+            "sass-loader",
+          ],
+        }),
       }, {
         test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: "file-loader",
+        use: "file-loader",
       },
     ],
   },
-  postcss: () => [autoprefixer],
 }
