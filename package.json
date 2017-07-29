@@ -1,7 +1,7 @@
 {
   "name": "react-redux-boilerplate",
   "description": "React + Redux boilerplate with Webpack 3, ES2016, react-router and Bulma.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
@@ -24,7 +24,6 @@
     "bulma": "0.4.1",
     "font-awesome": "^4.7.0",
     "react": "15.5.4",
-    "react-css-modules": "^4.3.0",
     "react-dom": "15.5.4",
     "react-hot-loader": "3.0.0-beta.7",
     "react-redux": "5.0.5",
@@ -32,7 +31,8 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "4.0.8",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^2.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.0",

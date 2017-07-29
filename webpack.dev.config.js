@@ -62,30 +62,6 @@ export default {
           },
         ],
       }, {
-        test: /\.sass$/,
-        include: [
-          path.resolve(__dirname, "src", "containers"),
-          path.resolve(__dirname, "src", "components"),
-        ],
-        use: [
-          "style-loader",
-          "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: function() {
-                return [autoprefixer]
-              },
-              sourceMap: true,
-            },
-          }, {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      }, {
         test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
         use: "file-loader",
       },

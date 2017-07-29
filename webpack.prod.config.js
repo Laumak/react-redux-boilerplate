@@ -5,8 +5,7 @@ import WebpackMd5Hash    from "webpack-md5-hash"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 
-const extractVendorCSS = new ExtractTextPlugin("vendor.css")
-const extractAppCSS    = new ExtractTextPlugin("styles.css")
+const extractCSS = new ExtractTextPlugin("styles.css")
 
 export default {
   resolve: {
@@ -38,8 +37,7 @@ export default {
       },
     }),
     new webpack.optimize.UglifyJsPlugin(),
-    extractVendorCSS,
-    extractAppCSS,
+    extractCSS,
   ],
   module: {
     rules: [
@@ -49,32 +47,10 @@ export default {
         use: "babel-loader",
       }, {
         test: /(globals\.sass)$/,
-        use: extractVendorCSS.extract({
+        use: extractCSS.extract({
           fallback: "style-loader",
           use: [
             "css-loader",
-            {
-              loader: "postcss-loader",
-              options: {
-                plugins: function() {
-                  return [autoprefixer]
-                },
-                sourceMap: true,
-              },
-            },
-            "sass-loader",
-          ],
-        }),
-      }, {
-        test: /\.sass$/,
-        include: [
-          path.resolve(__dirname, "src", "containers"),
-          path.resolve(__dirname, "src", "components"),
-        ],
-        use: extractAppCSS.extract({
-          fallback: "style-loader",
-          use: [
-            "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
             {
               loader: "postcss-loader",
               options: {
