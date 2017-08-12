@@ -1,7 +1,7 @@
 import React from "react"
 import { shallow } from "enzyme"
 import { expect } from "chai"
-import NavLink from "../../src/components/navLink"
+import NavLink from "./NavLink"
 import { NavLink as RouterNavLink } from "react-router-dom"
 
 describe("NavLinkComponent", () => {

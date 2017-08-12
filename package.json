@@ -17,7 +17,7 @@
     "preprod": "npm-run-all prodMessage clean-dist lint",
     "prod": "babel-node buildScripts/build.js",
     "postprod": "babel-node buildScripts/prodServer.js",
-    "test": "mocha buildScripts/testSetup.js \"test/**/*.test.js\"",
+    "test": "mocha buildScripts/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {

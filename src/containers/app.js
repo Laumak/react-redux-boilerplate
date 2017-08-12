@@ -7,7 +7,7 @@ import "../styles/globals.sass"
 import Home    from "../pages/home"
 import Counter from "./counter"
 
-import Nav from "../components/nav"
+import Nav from "../components/Nav"
 
 const links = [
   {

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import NavLink from "./navLink"
+import NavLink from "../NavLink"
 
 const propTypes = {
   links: PropTypes.array.isRequired,
