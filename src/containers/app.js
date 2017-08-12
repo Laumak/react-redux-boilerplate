@@ -2,12 +2,12 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { injectGlobal } from "styled-components"
 
-import "./styles/globals.sass"
+import "../styles/globals.sass"
 
-import Home    from "./pages/home"
-import Counter from "./containers/counter"
+import Home    from "../pages/home"
+import Counter from "./counter"
 
-import Nav from "./components/nav"
+import Nav from "../components/nav"
 
 const links = [
   {

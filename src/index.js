@@ -4,7 +4,7 @@ import { Provider } from "react-redux"
 import { AppContainer } from "react-hot-loader"
 import { BrowserRouter } from "react-router-dom"
 
-import App from "./app"
+import App from "./containers/app"
 import configureStore from "./store/configureStore"
 
 const store = configureStore()
@@ -21,8 +21,8 @@ ReactDOM.render(
 )
 
 if(module.hot) {
-  module.hot.accept("./app", () => {
-    const NewApp = require("./app").default
+  module.hot.accept("./containers/app", () => {
+    const NewApp = require("./containers/app").default
 
     ReactDOM.render(
       <AppContainer>
