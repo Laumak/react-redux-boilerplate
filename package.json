@@ -17,7 +17,7 @@
     "preprod": "npm-run-all prodMessage clean-dist lint",
     "prod": "babel-node buildScripts/build.js",
     "postprod": "babel-node buildScripts/prodServer.js",
-    "test": "mocha buildScripts/testSetup.js \"src/**/*.test.js\"",
+    "test": "mocha buildScripts/testSetup.js \"src/**/*.test.js\" -r jsdom-global/register",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
@@ -58,6 +58,8 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
+    "jsdom": "^11.1.0",
+    "jsdom-global": "^3.0.2",
     "localtunnel": "^1.8.2",
     "mocha": "^3.2.0",
     "node-sass": "^4.5.3",
