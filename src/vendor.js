@@ -12,5 +12,4 @@ import {
 } from "redux"
 
 import { AppContainer }         from "react-hot-loader"
-import CSSModules               from "react-css-modules"
 import { BrowserRouter, Route } from "react-router-dom"

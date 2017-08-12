@@ -1,6 +1,5 @@
 import path              from "path"
 import webpack           from "webpack"
-import autoprefixer      from "autoprefixer"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 
 export default {
@@ -46,20 +45,7 @@ export default {
         use: [
           "style-loader",
           "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: function() {
-                return [autoprefixer]
-              },
-              sourceMap: true,
-            },
-          }, {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
+          "sass-loader",
         ],
       }, {
         test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,

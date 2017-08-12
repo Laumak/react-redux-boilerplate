@@ -1,6 +1,5 @@
 import path              from "path"
 import webpack           from "webpack"
-import autoprefixer      from "autoprefixer"
 import WebpackMd5Hash    from "webpack-md5-hash"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
@@ -51,15 +50,6 @@ export default {
           fallback: "style-loader",
           use: [
             "css-loader",
-            {
-              loader: "postcss-loader",
-              options: {
-                plugins: function() {
-                  return [autoprefixer]
-                },
-                sourceMap: true,
-              },
-            },
             "sass-loader",
           ],
         }),

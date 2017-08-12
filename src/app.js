@@ -1,5 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { injectGlobal } from "styled-components"
 
 import "./styles/globals.sass"
 
@@ -17,6 +18,15 @@ const links = [
     name: "Counter",
   },
 ]
+
+injectGlobal`
+  .tabs.is-centered {
+    a.is-active {
+      border-bottom-color: #00d1b2;
+      color: #00d1b2;
+    }
+  }
+`
 
 const App = () => (
   <section className="section">
