@@ -21,7 +21,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
-    "bulma": "^0.5.1",
+    "bulma": "^0.7.1",
     "font-awesome": "^4.7.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
