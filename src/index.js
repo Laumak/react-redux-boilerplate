@@ -8,7 +8,6 @@ import App from "./containers/app"
 import configureStore from "./store/configureStore"
 
 const store = configureStore()
-const appEl = document.getElementById("app")
 
 ReactDOM.render(
   <AppContainer>
@@ -17,21 +16,5 @@ ReactDOM.render(
         <App />
       </BrowserRouter>
     </Provider>
-  </AppContainer>, appEl
+  </AppContainer>, document.getElementById("app")
 )
-
-if(module.hot) {
-  module.hot.accept("./containers/app", () => {
-    const NewApp = require("./containers/app").default
-
-    ReactDOM.render(
-      <AppContainer>
-        <Provider store={store}>
-          <BrowserRouter>
-            <NewApp store={store} />
-          </BrowserRouter>
-        </Provider>
-      </AppContainer>, appEl
-    )
-  })
-}

@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { injectGlobal } from "styled-components"
+import { hot } from "react-hot-loader"
 
 import "../styles/globals.sass"
 
@@ -38,4 +39,4 @@ const App = () => (
   </section>
 )
 
-export default App
+export default hot(module)(App)
